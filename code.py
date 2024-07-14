@@ -146,16 +146,18 @@ class VolunteerApp:
 
     def create_main_menu(self):
         # Create the main menu with buttons for different actions
-        self.main_frame = tk.Frame(self.root)
-        self.main_frame.pack()
+        self.main_frame = tk.Frame(self.root, bg="lightblue", padx=10, pady=10)
+        self.main_frame.pack(expand=True, fill=tk.BOTH)
 
-        tk.Button(self.main_frame, text="Add Volunteer", command=self.add_volunteer).pack(fill=tk.X)
-        tk.Button(self.main_frame, text="Update Volunteer", command=self.update_volunteer).pack(fill=tk.X)
-        tk.Button(self.main_frame, text="Remove Volunteer", command=self.remove_volunteer).pack(fill=tk.X)
-        tk.Button(self.main_frame, text="Log Hours", command=self.log_hours).pack(fill=tk.X)
-        tk.Button(self.main_frame, text="Search Volunteers", command=self.search_volunteers).pack(fill=tk.X)
-        tk.Button(self.main_frame, text="Generate Reports", command=self.generate_reports).pack(fill=tk.X)
-        tk.Button(self.main_frame, text="Exit", command=self.exit_app).pack(fill=tk.X)
+        button_style = {"bg": "white", "fg": "black", "font": ("Arial", 12), "padx": 10, "pady": 5, "relief": tk.RAISED}
+
+        tk.Button(self.main_frame, text="Add Volunteer", command=self.add_volunteer, **button_style).pack(fill=tk.X, pady=5)
+        tk.Button(self.main_frame, text="Update Volunteer", command=self.update_volunteer, **button_style).pack(fill=tk.X, pady=5)
+        tk.Button(self.main_frame, text="Remove Volunteer", command=self.remove_volunteer, **button_style).pack(fill=tk.X, pady=5)
+        tk.Button(self.main_frame, text="Log Hours", command=self.log_hours, **button_style).pack(fill=tk.X, pady=5)
+        tk.Button(self.main_frame, text="Search Volunteers", command=self.search_volunteers, **button_style).pack(fill=tk.X, pady=5)
+        tk.Button(self.main_frame, text="Generate Reports", command=self.generate_reports, **button_style).pack(fill=tk.X, pady=5)
+        tk.Button(self.main_frame, text="Exit", command=self.exit_app, **button_style).pack(fill=tk.X, pady=5)
 
     def validate_email(self, email):
         # Validate that the email follows a basic pattern
